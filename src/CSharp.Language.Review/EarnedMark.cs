@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace CSharp.Language.Review
 {
-    public class EarnedMark
+    public class EarnedMark : WeightedMark
     {
         public int Possible { get; private set; }
         private double _Earned;
