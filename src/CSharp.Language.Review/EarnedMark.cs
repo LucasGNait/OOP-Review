@@ -26,6 +26,21 @@ namespace CSharp.Language.Review
         public double WeightedPercent
         { get { return Percent * WeightedPercent / 100; } }
 
-        //public EarnedMark(WeightedMark markableItem, int possible, double earned) : this(markableItem.Name, markableItem.Weight, possible, earned) { }
+        public EarnedMark(WeightedMark markableItem, int possible, double earned)
+            : this(markableItem.Name, markableItem.Weight, possible, earned) { }
+
+        public EarnedMark(string name, int weight, int possible, double earned)
+            : base(name, weight)
+        {
+            if (possible <= 0)
+                throw new Exception("Invalid possible marks");
+            Possible = possible;
+            Earned = earned;
+        }
+
+        public override string ToString()
+        {
+            return string.Format("{0} ({1})\t - {2}% ({3}/{4}) \t - weighted Mark {5}%", Name, Weight, Percent, Earned, Possible, WeightedPercent);
+        }
     }
 }
