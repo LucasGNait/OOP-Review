@@ -47,22 +47,21 @@ namespace CSharp.Language.Review
             {
                 EarnedMark[] marks = new EarnedMark[4];
                 for (int i = 0; i < possibleMarks.Length; i++)
-                {
+                
                     marks[i] = new EarnedMark(CourseMarks[i], possibleMarks[i], 0);
                     Students.Add(new Student(name, marks));
-                }
+               
             }
         }
 
         public void AssignMarks(int min, int max)
         {
             foreach(Student person in Students)
-            {
+           
                 foreach(EarnedMark item in person.Marks)
-                {
-                    item.Earned = (rnd.Next(min, max) / 100.0) * item.Possible;
-                }
-            }
+                item.Earned = (rnd.Next(min, max) / 100.0) * item.Possible;
+                
+           
         }
     }
 }
